@@ -21,6 +21,17 @@ ifneq ($(filter marlin sailfish,$(TARGET_DEVICE)),)
 include $(CLEAR_VARS)
 LOCAL_MODULE := libtime_genoff
 LOCAL_MODULE_OWNER := google
+LOCAL_SRC_FILES_64 := proprietary/lib64/libtime_genoff.so
+LOCAL_SRC_FILES_32 := proprietary/lib/libtime_genoff.so
+LOCAL_MULTILIB := both
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_SUFFIX := .so
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := VZWAPNLib
+LOCAL_MODULE_OWNER := google
 LOCAL_SRC_FILES := proprietary/vendor/lib/lib/libtime_genoff.so
 LOCAL_MULTILIB := 32
 LOCAL_MODULE_TAGS := optional
